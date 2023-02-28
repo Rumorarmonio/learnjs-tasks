@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Задание</title>
+    <script>
+        function pow(x, n) {
+            let result = x;
+
+            for (let i = 1; i < n; i++) {
+                result *= x;
+            }
+
+            return result;
+        }
+
+        let x = prompt("Введите число x!", '');
+        let n = prompt("Введите степень n! (натуральное число)", '');
+
+        if (n < 1) {
+            alert(`Степень должна быть натуральным числом, а не "${n}"! Подумайте над своим поведением!`);
+        } else {
+            alert(`Результат: ${pow(x, n)}`);
+        }
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
