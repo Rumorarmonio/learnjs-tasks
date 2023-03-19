@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <link rel="stylesheet" href="1.css"/>
+    <script>
+        document.onclick = function (e) {
+            // показывает координаты точки клика
+            coord.innerHTML = e.clientX + ":" + e.clientY;
+        };
+    </script>
+</head>
+
+<body>
+Кликните в любом месте для получения координат в контексте окна.
+<br/>
+Это для тестирования, чтобы проверить результат, который вы получили с
+помощью JavaScript.
+<br/>
+<div id="coord">(координаты покажутся здесь)</div>
+
+<div id="field">
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    .
+</div>
+
+<div class="triangle-right" style="left: -20px; top: -176px">1</div>
+<div class="triangle-right" style="left: -10px; top: -178px">3</div>
+<div class="triangle-right" style="left: 190px; top: -40px">4</div>
+<div class="triangle-right" style="left: 200px; top: -42px">2</div>
+
+<script>
+    let field = document.querySelector("#field");
+    let coords = field.getBoundingClientRect();
+    let dot1 = [coords.left, coords.top];
+    let dot2 = [coords.right, coords.bottom];
+    let dot3 = [coords.left + field.clientLeft, coords.top + field.clientTop];
+    let dot4 = [
+        coords.left + field.clientLeft + field.clientWidth,
+        coords.top + field.clientTop + field.clientHeight,
+    ];
+    console.log(`${dot1[0]} : ${dot1[1]} - координаты 1 точки`); // точка 1
+    console.log(`${dot2[0]} : ${dot2[1]} - координаты 2 точки`); // точка 2
+    console.log(`${dot3[0]} : ${dot3[1]} - координаты 3 точки`); // точка 3
+    console.log(`${dot4[0]} : ${dot4[1]} - координаты 4 точки`); // точка 4
+</script>
+</body>
+</html>
